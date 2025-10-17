@@ -4,21 +4,23 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sistem Etos Kerja - Dashboard</title>
-    <link rel="stylesheet" href="../../asset/css/absensi.css">
+    <link rel="stylesheet" href="../../asset/css/menu_style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
 
     <div id="sidebar" class="sidebar">
         <div class="sidebar-header">
-            <h3 class="logo-text">SEK Dashboard</h3>
+            <img src="../../asset/img/logo2.jpg" alt="SEK Logo" class="sidebar-logo">
+            <h3 class="logo-text">SEK DASHBOARD</h3>
         </div>
         <nav class="sidebar-nav">
             <ul>
                 <li><a href="#"><i class="fas fa-home"></i> <span>Dashboard</span></a></li>
                 <li class="active"><a href="#"><i class="fas fa-user-check"></i> <span>Absensi</span></a></li>
                 <li><a href="#"><i class="fas fa-users"></i> <span>Data Karyawan</span></a></li>
-                <li><a href="#"><i class="fas fa-cogs"></i> <span>Pengaturan</span></a></li>
+                <li><a href="#"><i class="fas fa-users"></i> <span>Data Jobdesk</span></a></li>
+                <li><a href="#"><i class="fas fa-users"></i> <span>Penggajihan</span></a></li>
                 <li class="menu-divider">ACCOUNT PAGES</li>
                 <li><a href="#"><i class="fas fa-user-circle"></i> <span>Profile</span></a></li>
                 <li><a href="#"><i class="fas fa-sign-out-alt"></i> <span>Log Out</span></a></li>
@@ -29,7 +31,7 @@
             <i class="fas fa-question-circle"></i>
             <h4>Need Help?</h4>
             <p>Please check our docs</p>
-            <button>DOCUMENTATION</button>
+            <button class="btn-docs">DOCUMENTATION</button>
         </div>
     </div>
     
@@ -50,15 +52,40 @@
         </header>
 
         <main class="page-content">
-            <h1>Dashboard Overview</h1>
-            <p>Konten untuk halaman ini akan dimuat di sini. Sidebar hanya berfungsi untuk navigasi antar halaman.</p>
-
-            <div class="card-content">
-                <h2>Absensi Table</h2>
+            <div class="button-group">
                 <button class="btn-primary">Masuk Kerja</button>
                 <button class="btn-danger">Selesai Kerja</button>
-                </div>
-
+            </div>
+            <div class="card-content">
+                <h3>Absensi Table</h3>
+                <table class="table-absensi">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Nama</th>
+                            <th>Email</th>
+                            <th>Tanggal dan Waktu</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>001</td>
+                            <td>John Doe</td>
+                            <td>john@example.com</td>
+                            <td>2023-10-20 08:30</td>
+                            <td><span class="status-badge active">Masuk</span></td>
+                        </tr>
+                        <tr>
+                            <td>002</td>
+                            <td>Jane Smith</td>
+                            <td>jane@example.com</td>
+                            <td>2023-10-20 08:45</td>
+                            <td><span class="status-badge">Selesai</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
         </main>
         
     </div>
