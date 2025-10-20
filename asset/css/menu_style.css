@@ -472,22 +472,27 @@ h3.logo-text{
   font-weight: 500;
   cursor: pointer;
   transition: 0.2s ease;
+  border-radius: 20px;
 }
 
-.btn--save {
+.btn-save {
   background-color: #00ABB6;
   color: #fff;
   border: 1px solid #00ABB6;
+  border-radius: 20px;
+  font-weight: bold;
 }
 
-.btn--save:hover {
+.btn-save:hover {
   background-color: #00ABB6;
 }
 
-.btn--cancel {
+.btn-cancel {
   background-color: #fff;
-  color: #00ABB6;
-  border: 1px solid #00ABB6;
+  color: red;
+  border: 1px solid red;
+  border-radius: 20px;
+  font-weight: bold;
 }
 
 
