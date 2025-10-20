@@ -228,6 +228,15 @@ body {
     cursor: pointer;
 }
 
+.btn-warning {
+    background-color: #3D8DCA;
+    color: white;
+    font-weight: bold;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 20px;
+    cursor: pointer;
+}
 
 /* -------------------- */
 /* 5. TOGGLE COLLAPSED  */
