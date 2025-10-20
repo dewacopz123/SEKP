@@ -145,6 +145,10 @@ body {
     justify-content: space-between;
     align-items: center;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    position: fixed;
+    width: calc(100% - var(--sidebar-width));
+    top: 0;
+    z-index: 1000; /* pastikan di atas elemen lain */
 }
 
 .toggle-btn {
@@ -198,7 +202,10 @@ body {
 /* -------------------- */
 
 .page-content {
-    padding: 30px;
+    padding-top: 100px; /* cukup 100px agar tidak tertimpa navbar */
+    padding-left: 30px;
+    padding-right: 30px;
+    padding-bottom: 30px;
 }
 
 .card-content {
@@ -207,6 +214,7 @@ body {
     border-radius: 10px;
     margin-top: 20px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    margin-bottom: 10px;
 }
 .btn-primary {
     background-color: #48BB78;
