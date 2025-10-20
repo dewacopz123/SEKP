@@ -62,6 +62,14 @@ body {
     padding: 2 15px;
 }
 
+.sidebar-nav a img {
+  filter: invert(97%) sepia(0%) saturate(0%) hue-rotate(320deg) brightness(80%) contrast(87%);
+}
+
+.sidebar-nav a:hover img {
+  filter: invert(50%) sepia(19%) saturate(7481%) hue-rotate(151deg) brightness(95%) contrast(101%);
+}
+
 .sidebar-nav a {
     display: flex;
     align-items: center;
@@ -377,4 +385,131 @@ h3.logo-text{
     .table-absensi table { min-width: 600px; }
     .table-absensi thead th,
     .table-absensi tbody td { padding: 10px 12px; font-size: 0.88rem; }
+}
+
+/*PROFILE*/
+
+
+.profile {
+  padding: 30px;
+  background: #fff;
+  min-height: calc(100vh - 60px);
+}
+
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  background-color: #fff;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 25px;
+}
+
+.title {
+  font-size: 24px;
+  font-weight: 600;
+  color: #222;
+}
+
+.photo {
+  width: 75px;
+  height: 75px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #eee;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.row {
+  display: flex;
+  gap: 15px;
+}
+
+.group {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.label {
+  font-size: 14px;
+  font-weight: 500;
+  margin-bottom: 6px;
+  color: #333;
+}
+
+.group input {
+  padding: 10px;
+  font-size: 15px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  outline: none;
+  transition: border-color 0.2s ease;
+}
+
+.group input:focus {
+  border-color: #f97316;
+}
+
+.group input[disabled] {
+  background-color: #f6f6f6;
+  color: #888;
+  cursor: not-allowed;
+}
+
+/* BUTTONS */
+.buttons {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+}
+
+.btn {
+  padding: 10px 25px;
+  border-radius: 6px;
+  font-size: 15px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: 0.2s ease;
+  border-radius: 20px;
+}
+
+.btn-save {
+  background-color: #00ABB6;
+  color: #fff;
+  border: 1px solid #00ABB6;
+  border-radius: 20px;
+  font-weight: bold;
+}
+
+.btn-save:hover {
+  background-color: #00ABB6;
+}
+
+.btn-cancel {
+  background-color: #fff;
+  color: red;
+  border: 1px solid red;
+  border-radius: 20px;
+  font-weight: bold;
+}
+
+
+.btn--cancel:hover {
+  background-color: #fff6ed;
+}
+
+@media (max-width: 768px) {
+  .row {
+    flex-direction: column;
+  }
 }
