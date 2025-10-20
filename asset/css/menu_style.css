@@ -40,17 +40,17 @@ body {
 }
 
 .sidebar-header {
-    background-color: #00ABB6; 
+    background-color: var(--sidebar-active-color); 
     height: 70px; 
     padding-right: 10px;
     display: flex; 
     align-items: center;
     justify-content: center;
-    border-bottom: 1px solid #00ABB6; 
+    border-bottom: 1px solid var(--sidebar-active-color); 
 }
 .sidebar-header .logo-text {
     font-size: 1.2rem;
-    color: white; 
+    color: var(--main-color); 
 }
 
 .sidebar-nav ul {
@@ -74,12 +74,11 @@ body {
 }
 
 .sidebar-nav a i {
-    width: 30px; /* Lebar tetap untuk ikon */
+    width: 30px; 
     text-align: center;
 }
 
 .sidebar-nav a span {
-    /* Teks Menu */
     opacity: 1; 
     white-space: nowrap;
     transition: opacity 0.3s;
@@ -94,7 +93,7 @@ body {
 
 .menu-divider {
     font-size: 0.7rem;
-    color: #999;
+    color: var(--dark-color);
     padding: 20px 30px 5px;
 }
 
@@ -125,13 +124,26 @@ body {
 /* 2. MAIN WRAPPER      */
 /* -------------------- */
 
+.sidebar.collapsed {
+  width: 80px; /* sidebar mengecil tapi tidak menggeser isi */
+}
+
+.main-content.fixed {
+  margin-left: 250px; /* tetap stabil meski sidebar mengecil */
+}
+
+.sidebar.collapsed ~ .main-content.fixed {
+  margin-left: 80px; /* tetap ada jarak, tapi tidak terlalu jauh */
+}
+
+
 .main-wrapper {
-    /* Jarak awal dari sidebar */
-    margin-left: var(--sidebar-width); 
+    margin-left: var(--sidebar-width);
     width: calc(100% - var(--sidebar-width));
     min-height: 100vh;
-    transition: margin-left 0.3s ease, width 0.3s ease;
+    transition: all 0.3s ease;
 }
+
 
 /* -------------------- */
 /* 3. TOP NAVBAR        */
@@ -187,7 +199,7 @@ body {
 .user-profile .profile-img {
     width: 35px;
     height: 35px;
-    border-radius: 50%;
+    border-radius: 100%;
     margin-right: 10px;
     object-fit: cover;
 }
@@ -200,13 +212,23 @@ body {
 .page-content {
     padding: 30px;
 }
-
-.card-content {
+.card-content-button {
     background-color: white;
-    padding: 30px;
+    padding: 25px 30px;
     border-radius: 10px;
     margin-top: 20px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    width: 100%;
+    margin-inline: auto;
+}
+.card-content {
+    background-color: white;
+    padding: 25px 30px;
+    border-radius: 10px;
+    margin-top: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    width: 100%;
+    margin-inline: auto;
 }
 .btn-primary {
     background-color: #48BB78;
@@ -216,6 +238,7 @@ body {
     padding: 10px 20px;
     border-radius: 20px;
     margin-right: 10px;
+    margin-top: 10px;
     cursor: pointer;
 }
 .btn-danger {
@@ -282,86 +305,56 @@ h3.logo-text{
 }
 
 /* Table Absensi */
-.table-absensi {
-    margin: 20px 0;
-    background: #ffffff;
-    border-radius: 10px;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.04);
-    overflow: auto; /* memberi scroll horizontal pada layar kecil */
+
+/* Bungkus tabel agar tidak melewati card dan bisa scroll di layar kecil */
+.table-wrapper {
+    width: 100%;
+    overflow-x: auto;
 }
 
-/* Struktur tabel */
-.table-absensi table {
+/* Tabel mengikuti lebar penuh card */
+.table-absensi {
     width: 100%;
     border-collapse: collapse;
-    min-width: 720px;
+    border-radius: 10px;
+    overflow: hidden;
     font-size: 0.95rem;
 }
 
 .table-absensi thead {
-    color: #BDBDBD;
-    position: sticky;
-    top: 0;
-    z-index: 2;
+    background-color: #f4f6f8;
+    color: #555;
 }
 
-.table-absensi thead th {
-    /* Padding responsif: vertikal tetap, horizontal menyesuaikan lebar layar */
-    padding: 12px clamp(12px, 3.5vw, 70px);
+.table-absensi th, 
+.table-absensi td {
+    padding: 12px 20px;
     text-align: left;
-    font-weight: 600;
-    white-space: nowrap;
-    vertical-align: middle; /* Menjaga agar header sejajar dengan body */
+    border-top: 1px solid #eee;
 }
 
-.table-absensi tbody td {
-    /* Padding lebih kompak dan responsif */
-    padding: 12px clamp(12px, 2.5vw, 20px);
-    border-top: 1px solid #eef2f5;
-    vertical-align: middle;
-    color: #333;
-}
-
-/* Zebra & hover */
 .table-absensi tbody tr:nth-child(even) {
     background: #fbfcfd;
 }
 .table-absensi tbody tr:hover {
-    background: rgba(0,171,182,0.06);
+    background: rgba(0,171,182,0.08);
 }
 
-/* Status pill */
-.table-absensi .status {
+/* Status badge */
+.status-badge {
     display: inline-block;
-    padding: 6px 10px;
+    padding: 6px 12px;
     border-radius: 999px;
     font-size: 0.85rem;
-    font-weight: 700;
+    font-weight: 600;
 }
-
-.table-absensi .status.present { background: #e6fffb; color: #007f74; }
-.table-absensi .status.absent  { background: #fff1f2; color: #c53030; }
-.table-absensi .status.late    { background: #fff7ed; color: #b45309; }
-
-/* Actions column */
-.table-absensi .actions {
-    display: flex;
-    gap: 8px;
-    justify-content: flex-end;
-    align-items: center;
+.status-badge.active {
+    background: #e6fffb;
+    color: #007f74;
 }
-
-.table-absensi .action-btn {
-    background: transparent;
-    border: none;
-    padding: 6px;
-    cursor: pointer;
-    color: var(--dark-color);
-    border-radius: 6px;
-}
-.table-absensi .action-btn:hover {
-    background: rgba(0,0,0,0.04);
-    color: var(--sidebar-active-color);
+.status-badge:not(.active) {
+    background: #fff1f2;
+    color: #c53030;
 }
 
 /* Responsif: kecilkan teks pada layar sangat kecil */
