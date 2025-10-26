@@ -1,73 +1,127 @@
 document.addEventListener("DOMContentLoaded", function () {
+    const btnMasukKerja = document.getElementById("btnMasukKerja");
+    const btnKeluarKerja = document.getElementById("btnKeluarKerja");
     const popupContainer = document.getElementById("popupContainer");
-    const btnMasuk = document.getElementById('btnMasuk');
-    const btnSelesai = document.getElementById('btnSelesai');
 
+    // Hapus modal jika ada
     function removeModal(id) {
         const m = document.getElementById(id);
         if (m) m.remove();
     }
-    function createModal(html, id) {
+
+    // Buat modal dengan gaya seperti contoh
+    function createModal(title, message, id) {
         removeModal(id);
-        const modal = document.createElement("div");
-        modal.id = id;
-        modal.className = "modal";
-        modal.innerHTML = html;
-        popupContainer.appendChild(modal);
 
-        const closeBtns = modal.querySelectorAll("[data-close]");
-        closeBtns.forEach(btn => btn.addEventListener("click", () => modal.remove()));
+        // Overlay gelap transparan
+        const overlay = document.createElement("div");
+        overlay.id = id;
+        Object.assign(overlay.style, {
+            position: "fixed",
+            top: "0",
+            left: "0",
+            width: "100vw",
+            height: "100vh",
+            backgroundColor: "rgba(0,0,0,0.5)",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            zIndex: "1000",
+        });
 
-        return modal;
+        // Kotak modal
+        const modalBox = document.createElement("div");
+        Object.assign(modalBox.style, {
+            backgroundColor: "#fff",
+            borderRadius: "10px",
+            padding: "25px 30px",
+            width: "320px",
+            boxShadow: "0 4px 10px rgba(0,0,0,0.2)",
+            textAlign: "center",
+            fontFamily: "Arial, sans-serif",
+        });
+
+        // Judul
+        const modalTitle = document.createElement("h2");
+        modalTitle.textContent = title;
+        Object.assign(modalTitle.style, {
+            marginTop: "0",
+            marginBottom: "20px",
+            fontSize: "20px",
+            fontWeight: "bold",
+        });
+
+        // Isi pesan
+        const modalMsg = document.createElement("p");
+        modalMsg.innerHTML = message;
+        Object.assign(modalMsg.style, {
+            fontSize: "15px",
+            marginBottom: "25px",
+            lineHeight: "1.4",
+        });
+
+        // Tombol kontainer
+        const buttonContainer = document.createElement("div");
+        Object.assign(buttonContainer.style, {
+            display: "flex",
+            justifyContent: "space-around",
+            gap: "10px",
+        });
+
+        // Tombol Tutup (merah)
+        const btnClose = document.createElement("button");
+        btnClose.textContent = "Tutup";
+        Object.assign(btnClose.style, {
+            backgroundColor: "#f44336",
+            color: "white",
+            border: "none",
+            borderRadius: "20px",
+            padding: "10px 25px",
+            cursor: "pointer",
+            fontWeight: "bold",
+        });
+        btnClose.addEventListener("click", () => overlay.remove());
+
+        // Tombol OK (biru)
+        const btnOk = document.createElement("button");
+        btnOk.textContent = "OK";
+        Object.assign(btnOk.style, {
+            backgroundColor: "#00bcd4",
+            color: "white",
+            border: "none",
+            borderRadius: "20px",
+            padding: "10px 25px",
+            cursor: "pointer",
+            fontWeight: "bold",
+        });
+        btnOk.addEventListener("click", () => overlay.remove());
+
+        buttonContainer.appendChild(btnOk);
+        buttonContainer.appendChild(btnClose);
+
+        // Susun elemen modal
+        modalBox.appendChild(modalTitle);
+        modalBox.appendChild(modalMsg);
+        modalBox.appendChild(buttonContainer);
+        overlay.appendChild(modalBox);
+        popupContainer.appendChild(overlay);
     }
 
-    const getAbsensiModalHTML = (title, actionId) => `
-        <div class="modal-content">
-            <span class="close-btn" data-close>&times;</span>
-            <h2>Konfirmasi Absensi ${title}</h2>
-            <p>Apakah Anda yakin ingin mencatat absensi ${title} sekarang?</p>
-            <div class="modal-actions">
-                <button type="button" class="btn btn-secondary" data-close>Batal</button>
-                <button type="button" class="btn btn-primary" id="${actionId}">Konfirmasi</button>
-            </div>
-        </div>
-    `;
-
-    // 1. Modal Masuk Kerja
-    if (btnMasuk) {
-        btnMasuk.addEventListener('click', () => {
-            const modal = createModal(getAbsensiModalHTML("Masuk Kerja", "confirmMasuk"), "modal-absensi-masuk");
-            
-            // Attach specific confirmation handler
-            const confirmMasuk = modal.querySelector('#confirmMasuk');
-            if (confirmMasuk) {
-                confirmMasuk.addEventListener('click', () => {
-                    alert('Absensi masuk berhasil dicatat!');
-                    modal.remove(); 
-                });
-            }
+    // Event: Masuk Kerja
+    if (btnMasukKerja) {
+        btnMasukKerja.addEventListener("click", () => {
+            const now = new Date();
+            const jam = now.toLocaleTimeString("id-ID", { hour: "2-digit", minute: "2-digit" });
+            createModal("Masuk Kerja", `Anda telah masuk kerja pada pukul <b>${jam}</b>.`, "modal-masuk");
         });
     }
 
-    // 2. Modal Selesai Kerja
-    if (btnSelesai) {
-        btnSelesai.addEventListener('click', () => {
-            const modal = createModal(getAbsensiModalHTML("Selesai Kerja", "confirmSelesai"), "modal-absensi-selesai");
-
-            // Attach specific confirmation handler
-            const confirmSelesai = modal.querySelector('#confirmSelesai');
-            if (confirmSelesai) {
-                confirmSelesai.addEventListener('click', () => {
-                    alert('Absensi selesai kerja berhasil dicatat!');
-                    modal.remove(); 
-                });
-            }
+    // Event: Keluar Kerja
+    if (btnKeluarKerja) {
+        btnKeluarKerja.addEventListener("click", () => {
+            const now = new Date();
+            const jam = now.toLocaleTimeString("id-ID", { hour: "2-digit", minute: "2-digit" });
+            createModal("Selesai Kerja", `Anda telah selesai kerja pada pukul <b>${jam}</b>.`, "modal-keluar");
         });
     }
-
-    window.addEventListener('click', (e) => {
-        if (e.target.classList.contains('modal') && e.target.id.startsWith('modal-')) {
-            e.target.remove();
-        }
-    });
 });
