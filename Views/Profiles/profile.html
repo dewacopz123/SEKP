@@ -11,10 +11,43 @@
 
 <body>
 
-  <!-- Load navbar include first so scripts that depend on navbar elements can find them -->
-  <div id="navbar-placeholder" data-src="../Navbar/navbar.html"></div>
+  <div id="sidebar" class="sidebar">
+    <div class="sidebar-header">
+      <img src="../../asset/img/logo2.jpg" alt="SEK Logo" class="sidebar-logo">
+      <h3 class="logo-text">SEK DASHBOARD</h3>
+    </div>
+    <nav class="sidebar-nav">
+      <ul>
+        <li><a href="#"><img src="../../asset/icon/dashboard.png"><span>Dashboard</span></a></li>
+        <li><a href="../../Views/Absensi/absensi.html"><img src="../../asset/icon/absensi.png"><span>Absensi</span></a>
+        </li>
+        <li><a href="#"><img src="../../asset/icon/data_karyawan.png"><span>Data Karyawan</span></a></li>
+        <li><a href="#"><img src="../../asset/icon/data_jobdesk.png"><span>Data Jobdesk</span></a></li>
+        <li><a href="#"><img src="../../asset/icon/penggajihan.png"><span>Penggajian</span></a></li>
+        <li class="menu-divider">ACCOUNT PAGES</li>
+        <li><a href="#"><img src="../../asset/icon/profile.png"><span>Profile</span></a></li>
+        <li><a href="#"><img src="../../asset/icon/logout.png"><span>Log Out</span></a></li>
+      </ul>
+    </nav>
+    <div class="sidebar-info-box">
+      <i class="fas fa-question-circle"></i>
+      <h4>Need Help?</h4>
+      <p>Please check our docs</p>
+      <button class="btn-docs">DOCUMENTATION</button>
+    </div>
+  </div>
 
   <div id="main-wrapper" class="main-wrapper">
+
+    <header class="top-navbar">
+      <button id="sidebar-toggle" class="toggle-btn"><i class="fas fa-bars"></i></button>
+      <div class="navbar-right">
+        <div class="user-profile">
+          <img src="../../asset/img/profile.jpg" alt="User" class="profile-img">
+          <span>Mustafiq, Admin</span>
+        </div>
+      </div>
+    </header>
 
     <main class="profile">
       <section class="container">
@@ -70,8 +103,24 @@
       </section>
     </main>
   </div>
-  <script src="../../asset/js/load_navbar.js"></script>
-  <script src="../../asset/js/absensi.js"></script>
+
+  <div id="photoModal" class="modal">
+  <div class="modal-content">
+    <h3>Ganti Foto Profil</h3>
+    <img id="previewImage" src="../../asset/img/akbar.png" alt="Preview Foto" class="preview-large">
+
+    <form id="uploadForm" enctype="multipart/form-data">
+      <input type="file" id="fileInput" name="foto" accept="image/*" hidden onchange="previewImageFile(event)">
+      <button type="button" class="btn-upload" onclick="document.getElementById('fileInput').click()">Upload</button>
+
+      <div class="modal-buttons">
+        <button type="button" class="btn-cancel" onclick="closeModal()">Cancel</button>
+        <button type="submit" class="btn-save">Save</button>
+      </div>
+    </form>
+  </div>
+</div>
+  <script src="../../asset/js/profile.js"></script>
 </body>
 
 </html>
