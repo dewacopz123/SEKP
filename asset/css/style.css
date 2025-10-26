@@ -10,7 +10,6 @@
     --success-color: #48cfad; 
 }
 
-/* Body Styling */
 * {
     margin: 0;
     padding: 0;
@@ -28,7 +27,6 @@ body {
     overflow-x: hidden;
 }
 
-/* Latar Belakang */
 body::before {
     content: '';
     position: absolute;
@@ -48,7 +46,6 @@ body::before {
     z-index: -1;
 }
 
-/* Header & Welcome Text */
 .main-header {
     width: 90%; max-width: 1200px; display: flex; justify-content: space-between;
     align-items: center; padding: 20px 0; color: white; font-size: 14px; z-index: 10;
@@ -157,8 +154,6 @@ body::before {
     background-color: #e0e0e0;
 }
 
-
-/* --- Input Field Styling --- */
 .input-group-label { text-align: left; margin-bottom: 5px; }
 .input-group-label label { font-size: 0.8rem; color: #555; font-weight: 600; margin-bottom: 3px; display: block; }
 .input-field-wrapper { position: relative; }
@@ -185,8 +180,6 @@ body::before {
     z-index: 5; 
 }
 
-
-/* --- Tombol Remember Me (SWITCH TOGGLE) --- */
 .remember-me {
     display: flex; align-items: center; justify-content: flex-start;
     margin-top: 5px; 
@@ -213,7 +206,6 @@ input:checked + .slider:before { transform: translateX(20px); }
 .switch-text { font-size: 0.9rem; margin-top: 10px; color: var(--text-color); }
 .switch-text a { color: var(--main-color); text-decoration: none; font-weight: 600; }
 
-/* Form Footer (Di Luar Card) */
 .card-footer {
     font-size: 0.8rem !important;
     color: black !important;

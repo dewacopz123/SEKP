@@ -23,7 +23,6 @@ document.addEventListener("DOMContentLoaded", function () {
         return modal;
     }
 
-    // --- Tombol Tambah Karyawan ---
     if (btnAddKaryawan) {
         btnAddKaryawan.addEventListener("click", async () => {
             try {
@@ -42,7 +41,6 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
 
-    // --- Tombol Edit Karyawan ---
     if (btnEditKaryawan) {
         btnEditKaryawan.addEventListener("click", async () => {
             try {
@@ -64,7 +62,6 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
 
-    // --- Tombol Hapus Karyawan ---
     if (btnDeleteKaryawan) {
         btnDeleteKaryawan.addEventListener("click", () => {
             if (confirm("Yakin ingin menghapus data karyawan?")) {

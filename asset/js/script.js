@@ -7,19 +7,13 @@ document.addEventListener('DOMContentLoaded', () => {
     const switchToLoginbottomLink = document.getElementById('switch-to-login-bottom');
     const switchToRegisterbottomLink = document.getElementById('switch-to-register-bottom');
     
-    // Tinggi Card 
     const REGISTER_HEIGHT = '570px'; 
     const LOGIN_HEIGHT = '450px'; 
 
-    // Set status awal ke 'register'
     formContainer.classList.add('register-state');
     mainCard.style.height = REGISTER_HEIGHT;
     mainWelcomeText.textContent = 'Welcome!';
 
-
-    /**
-     * Mengubah ke status Login.
-     */
     function switchToLogin() {
         formContainer.classList.remove('register-state');
         formContainer.classList.add('login-state');
@@ -34,9 +28,6 @@ document.addEventListener('DOMContentLoaded', () => {
         mainCard.style.height = LOGIN_HEIGHT;
     }
 
-    /**
-     * Mengubah ke status Register.
-     */
     function switchToRegister() {
         formContainer.classList.remove('login-state');
         formContainer.classList.add('register-state');
@@ -51,7 +42,6 @@ document.addEventListener('DOMContentLoaded', () => {
         mainCard.style.height = REGISTER_HEIGHT;
     }
 
-    // Event listeners untuk perpindahan form
     if (switchToLoginLink) {
         switchToLoginLink.addEventListener('click', (e) => {
             e.preventDefault();
