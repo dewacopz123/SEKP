@@ -422,6 +422,9 @@ h3.logo-text {
     border-collapse: collapse;
     min-width: 720px;
     font-size: 0.95rem;
+    text-align: center; 
+     border-collapse: collapse;
+     border-spacing: 0;
 }
 
 
@@ -435,7 +438,7 @@ h3.logo-text {
 
 .table-absensi thead th {
     padding: 12px clamp(12px, 3.5vw, 70px);
-    text-align: left;
+    text-align: center;
     font-weight: 600;
     white-space: nowrap;
     vertical-align: middle;
@@ -443,7 +446,7 @@ h3.logo-text {
 
 .table-absensi tbody td {
     padding: 12px clamp(12px, 2.5vw, 20px);
-    border-top: 1px solid #eef2f5;
+    text-align: center;
     vertical-align: middle;
     color: #333;
 }
