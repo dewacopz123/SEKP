@@ -25,18 +25,16 @@ document.addEventListener('DOMContentLoaded', () => {
   const REGISTER_HEIGHT = '570px';
   const LOGIN_HEIGHT = '450px';
 
-  // Set status awal ke 'register'
-  formContainer.classList.add('register-state');
-  mainCard.style.height = REGISTER_HEIGHT;
-  mainWelcomeText.textContent = 'Welcome!';
+    formContainer.classList.add('register-state');
+    mainCard.style.height = REGISTER_HEIGHT;
+    mainWelcomeText.textContent = 'Welcome!';
 
-  // ---------------- Fungsi ganti form ----------------
-  function switchToLogin() {
-    formContainer.classList.remove('register-state');
-    formContainer.classList.add('login-state');
-    mainWelcomeText.textContent = 'Welcome Back!';
-    mainCard.style.height = LOGIN_HEIGHT;
-  }
+    function switchToLogin() {
+        formContainer.classList.remove('register-state');
+        formContainer.classList.add('login-state');
+        mainWelcomeText.textContent = 'Welcome Back!';
+        mainCard.style.height = LOGIN_HEIGHT;
+    }
 
   function switchToLoginbottom() {
     formContainer.classList.remove('register-state');
@@ -59,13 +57,12 @@ document.addEventListener('DOMContentLoaded', () => {
     mainCard.style.height = REGISTER_HEIGHT;
   }
 
-  // ---------------- Event listener tombol ----------------
-  if (switchToLoginLink) {
-    switchToLoginLink.addEventListener('click', (e) => {
-      e.preventDefault();
-      switchToLogin();
-    });
-  }
+    if (switchToLoginLink) {
+        switchToLoginLink.addEventListener('click', (e) => {
+            e.preventDefault();
+            switchToLogin();
+        });
+    }
 
   if (switchToLoginbottomLink) {
     switchToLoginbottomLink.addEventListener('click', (e) => {
