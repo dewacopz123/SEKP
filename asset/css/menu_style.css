@@ -558,5 +558,50 @@ h3.logo-text{
   cursor: not-allowed;
 }
 
+/* BUTTONS */
+.buttons {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+}
+
+.btn {
+  padding: 10px 25px;
+  border-radius: 6px;
+  font-size: 15px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: 0.2s ease;
+  border-radius: 20px;
+}
+
+.btn-save {
+  background-color: #00ABB6;
+  color: #fff;
+  border: 1px solid #00ABB6;
+  border-radius: 20px;
+  font-weight: bold;
+}
+
+.btn-save:hover {
+  background-color: #00ABB6;
+}
+
+.btn-cancel {
+  background-color: #fff;
+  color: red;
+  border: 1px solid red;
+  border-radius: 20px;
+  font-weight: bold;
+}
 
 
+.btn--cancel:hover {
+  background-color: #fff6ed;
+}
+
+@media (max-width: 768px) {
+  .row {
+    flex-direction: column;
+  }
+}
