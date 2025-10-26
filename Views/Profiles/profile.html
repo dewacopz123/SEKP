@@ -1,12 +1,12 @@
+
 <!DOCTYPE html>
 <html lang="id">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Sistem Etos Kerja - Edit Profile</title>
   <link rel="stylesheet" href="../../asset/css/menu_style.css">
-  <link rel="stylesheet" href="../../asset/css/profile_style.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 
 <body>
@@ -19,7 +19,8 @@
     <nav class="sidebar-nav">
       <ul>
         <li><a href="#"><img src="../../asset/icon/dashboard.png"><span>Dashboard</span></a></li>
-        <li><a href="../../Views/Absensi/absensi.html"><img src="../../asset/icon/absensi.png"><span>Absensi</span></a></li>
+        <li><a href="../../Views/Absensi/absensi.html"><img src="../../asset/icon/absensi.png"><span>Absensi</span></a>
+        </li>
         <li><a href="#"><img src="../../asset/icon/data_karyawan.png"><span>Data Karyawan</span></a></li>
         <li><a href="#"><img src="../../asset/icon/data_jobdesk.png"><span>Data Jobdesk</span></a></li>
         <li><a href="#"><img src="../../asset/icon/penggajihan.png"><span>Penggajian</span></a></li>
@@ -37,7 +38,7 @@
   </div>
 
   <div id="main-wrapper" class="main-wrapper">
-    
+
     <header class="top-navbar">
       <button id="sidebar-toggle" class="toggle-btn"><i class="fas fa-bars"></i></button>
       <div class="navbar-right">
@@ -52,7 +53,8 @@
       <section class="container">
         <div class="header">
           <h2 class="title">Edit Profile</h2>
-          <img src="../../asset/img/akbar.png" alt="User Photo" class="photo">
+          <img src="../../asset/img/akbar.png" alt="User Photo" class="photo" id="profilePhoto" onclick="openModal()">
+
         </div>
 
         <form class="form">
@@ -89,8 +91,7 @@
               <input type="text" id="status" value="Aktif" disabled>
             </div>
             <div class="group">
-              <label for="photo">Foto Profil</label>
-              <input type="file" id="photo" accept="image/*">
+
             </div>
           </div>
 
@@ -103,6 +104,23 @@
     </main>
   </div>
 
-  <script src="../../asset/js/absensi.js"></script>
+  <div id="photoModal" class="modal">
+  <div class="modal-content">
+    <h3>Ganti Foto Profil</h3>
+    <img id="previewImage" src="../../asset/img/akbar.png" alt="Preview Foto" class="preview-large">
+
+    <form id="uploadForm" enctype="multipart/form-data">
+      <input type="file" id="fileInput" name="foto" accept="image/*" hidden onchange="previewImageFile(event)">
+      <button type="button" class="btn-upload" onclick="document.getElementById('fileInput').click()">Upload</button>
+
+      <div class="modal-buttons">
+        <button type="button" class="btn-cancel" onclick="closeModal()">Cancel</button>
+        <button type="submit" class="btn-save">Save</button>
+      </div>
+    </form>
+  </div>
+</div>
+  <script src="../../asset/js/profile.js"></script>
 </body>
+
 </html>
