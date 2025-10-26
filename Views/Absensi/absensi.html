@@ -9,31 +9,7 @@
 </head>
 <body>
 
-    <div id="sidebar" class="sidebar">
-        <div class="sidebar-header">
-            <img src="../../asset/img/logo2.jpg" alt="SEK Logo" class="sidebar-logo">
-            <h3 class="logo-text">SEK DASHBOARD</h3>
-        </div>
-        <nav class="sidebar-nav">
-            <ul>
-                <li><a href="#"><i class="fas fa-home"></i> <span>Dashboard</span></a></li>
-                <li class="active"><a href="#"><i class="fas fa-user-check"></i> <span>Absensi</span></a></li>
-                <li><a href="#"><i class="fas fa-users"></i> <span>Data Karyawan</span></a></li>
-                <li><a href="#"><i class="fas fa-users"></i> <span>Data Jobdesk</span></a></li>
-                <li><a href="#"><i class="fas fa-users"></i> <span>Penggajihan</span></a></li>
-                <li class="menu-divider">ACCOUNT PAGES</li>
-                <li><a href="#"><i class="fas fa-user-circle"></i> <span>Profile</span></a></li>
-                <li><a href="#"><i class="fas fa-sign-out-alt"></i> <span>Log Out</span></a></li>
-            </ul>
-        </nav>
-        
-        <div class="sidebar-info-box">
-            <i class="fas fa-question-circle"></i>
-            <h4>Need Help?</h4>
-            <p>Please check our docs</p>
-            <button class="btn-docs">DOCUMENTATION</button>
-        </div>
-    </div>
+    <div id="navbar-placeholder" data-src="../Navbar/navbar.html"></div>
     
     <div id="main-wrapper" class="main-wrapper">
         
@@ -52,9 +28,14 @@
         </header>
 
         <main class="page-content">
-            <div class="button-group">
-                <button class="btn-primary">Masuk Kerja</button>
-                <button class="btn-danger">Selesai Kerja</button>
+            <h1>Absensi</h1>
+            <div class="div">
+                <div class="card-content-button4">
+                    <div class="button-group">
+                    <button class="btn-primary">Masuk Kerja</button>
+                    <button class="btn-danger">Selesai Kerja</button>
+            </div>
+                </div>
             </div>
             <div class="card-content">
                 <h3>Absensi Table</h3>
@@ -89,7 +70,7 @@
         </main>
         
     </div>
-
+    <script src="../../asset/js/load_navbar.js"></script>
     <script src="../../asset/js/absensi.js"></script>
 </body>
 </html>
