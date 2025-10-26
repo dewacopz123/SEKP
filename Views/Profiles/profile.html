@@ -11,43 +11,9 @@
 
 <body>
 
-  <div id="sidebar" class="sidebar">
-    <div class="sidebar-header">
-      <img src="../../asset/img/logo2.jpg" alt="SEK Logo" class="sidebar-logo">
-      <h3 class="logo-text">SEK DASHBOARD</h3>
-    </div>
-    <nav class="sidebar-nav">
-      <ul>
-        <li><a href="#"><img src="../../asset/icon/dashboard.png"><span>Dashboard</span></a></li>
-        <li><a href="../../Views/Absensi/absensi.html"><img src="../../asset/icon/absensi.png"><span>Absensi</span></a>
-        </li>
-        <li><a href="#"><img src="../../asset/icon/data_karyawan.png"><span>Data Karyawan</span></a></li>
-        <li><a href="#"><img src="../../asset/icon/data_jobdesk.png"><span>Data Jobdesk</span></a></li>
-        <li><a href="#"><img src="../../asset/icon/penggajihan.png"><span>Penggajian</span></a></li>
-        <li class="menu-divider">ACCOUNT PAGES</li>
-        <li><a href="#"><img src="../../asset/icon/profile.png"><span>Profile</span></a></li>
-        <li><a href="#"><img src="../../asset/icon/logout.png"><span>Log Out</span></a></li>
-      </ul>
-    </nav>
-    <div class="sidebar-info-box">
-      <i class="fas fa-question-circle"></i>
-      <h4>Need Help?</h4>
-      <p>Please check our docs</p>
-      <button class="btn-docs">DOCUMENTATION</button>
-    </div>
-  </div>
-
+  <div id="navbar-placeholder" data-src="../Navbar/navbar.html"></div>
+  
   <div id="main-wrapper" class="main-wrapper">
-
-    <header class="top-navbar">
-      <button id="sidebar-toggle" class="toggle-btn"><i class="fas fa-bars"></i></button>
-      <div class="navbar-right">
-        <div class="user-profile">
-          <img src="../../asset/img/profile.jpg" alt="User" class="profile-img">
-          <span>Mustafiq, Admin</span>
-        </div>
-      </div>
-    </header>
 
     <main class="profile">
       <section class="container">
@@ -96,8 +62,8 @@
           </div>
 
           <div>
-            <button type="button" class="btn btn-cancel">Cancel</button>
-            <button type="submit" class="btn btn-save">Save</button>
+            <button type="button" class="btn-danger">Cancel</button>
+            <button type="submit" class="btn-jobdesk">Save</button>
           </div>
         </form>
       </section>
@@ -120,6 +86,7 @@
     </form>
   </div>
 </div>
+  <script src="../../asset/js/load_navbar.js"></script>
   <script src="../../asset/js/profile.js"></script>
 </body>
 
