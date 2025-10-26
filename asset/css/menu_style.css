@@ -43,19 +43,19 @@ body {
 }
 
 .sidebar-header {
-    background-color: #00ABB6; 
-    height: 70px; 
+    background-color: #00ABB6;
+    height: 70px;
     padding-right: 10px;
     display: flex;
     align-items: center;
     justify-content: center;
-    border-bottom: 1px solid #00ABB6; 
+    border-bottom: 1px solid #00ABB6;
     justify-content: space-between;
 }
 
 .sidebar-header .logo-text {
     font-size: 1.2rem;
-    color: white; 
+    color: white;
 }
 
 .sidebar-nav ul {
@@ -87,13 +87,14 @@ body {
 }
 
 .sidebar-nav a i {
-    width: 30px; /* Lebar tetap untuk ikon */
+    width: 30px;
+    /* Lebar tetap untuk ikon */
     text-align: center;
 }
 
 .sidebar-nav a span {
     /* Teks Menu */
-    opacity: 1; 
+    opacity: 1;
     white-space: nowrap;
     transition: opacity 0.3s;
 }
@@ -107,7 +108,7 @@ body {
 
 .menu-divider {
     font-size: 0.7rem;
-    color: var(--dark-color);
+    color: #999;
     padding: 20px 30px 5px;
 }
 
@@ -151,27 +152,13 @@ body {
 /* 2. MAIN WRAPPER      */
 /* -------------------- */
 
-.sidebar.collapsed {
-  width: 80px; /* sidebar mengecil tapi tidak menggeser isi */
-}
-
-.main-content.fixed {
-  margin-left: 250px; /* tetap stabil meski sidebar mengecil */
-}
-
-.sidebar.collapsed ~ .main-content.fixed {
-  margin-left: 80px; /* tetap ada jarak, tapi tidak terlalu jauh */
-}
-
-
 .main-wrapper {
     /* Jarak awal dari sidebar */
-    margin-left: var(--sidebar-width); 
+    margin-left: var(--sidebar-width);
     width: calc(100% - var(--sidebar-width));
     min-height: 100vh;
-    transition: all 0.3s ease;
+    transition: margin-left 0.3s ease, width 0.3s ease;
 }
-
 
 /* -------------------- */
 /* 3. TOP NAVBAR        */
@@ -230,8 +217,15 @@ body {
     padding: 10px 16px 10px 42px;
     border: none;
     border-radius: 10px;
+    background: rgba(255, 255, 255, 0.95);
+    color: #222;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.06);
 }
-.search-bar input::placeholder { color: #6b6b6b; }
+
+.search-bar input::placeholder {
+    color: #6b6b6b;
+}
+
 .search-bar i {
     position: absolute;
     left: 14px;
@@ -310,18 +304,10 @@ body {
     padding-right: 30px;
     padding-bottom: 30px;
 }
-.card-content-button {
-    background-color: white;
-    padding: 25px 30px;
-    border-radius: 10px;
-    margin-top: 20px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
-    width: 100%;
-    margin-inline: auto;
-}
+
 .card-content {
     background-color: white;
-    padding: 25px 30px;
+    padding: 30px;
     border-radius: 10px;
     margin-top: 20px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
@@ -336,7 +322,6 @@ body {
     padding: 10px 20px;
     border-radius: 20px;
     margin-right: 10px;
-    margin-top: 10px;
     cursor: pointer;
     width: 100px;
     text-align: center;
@@ -445,43 +430,38 @@ h3.logo-text {
 }
 
 /* Table Absensi */
-
-/* Bungkus tabel agar tidak melewati card dan bisa scroll di layar kecil */
-.table-wrapper {
-    width: 100%;
-    overflow-x: auto;
-}
-
-/* Tabel mengikuti lebar penuh card */
 .table-absensi {
     margin: 20px 0;
     background: #ffffff;
     border-radius: 10px;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.04);
-    overflow: auto; /* memberi scroll horizontal pada layar kecil */
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
+    overflow: auto;
+    /* memberi scroll horizontal pada layar kecil */
 }
 
 /* Struktur tabel */
 .table-absensi table {
     width: 100%;
     border-collapse: collapse;
-    border-radius: 10px;
-    overflow: hidden;
+    min-width: 720px;
     font-size: 0.95rem;
 }
 
 .table-absensi thead {
-    background-color: #f4f6f8;
-    color: #555;
+    color: #BDBDBD;
+    position: sticky;
+    top: 0;
+    z-index: 2;
 }
 
-.table-absensi th, 
-.table-absensi td {
-    padding: 12px 20px;
+.table-absensi thead th {
+    /* Padding responsif: vertikal tetap, horizontal menyesuaikan lebar layar */
+    padding: 12px clamp(12px, 3.5vw, 70px);
     text-align: left;
     font-weight: 600;
     white-space: nowrap;
-    vertical-align: middle; /* Menjaga agar header sejajar dengan body */
+    vertical-align: middle;
+    /* Menjaga agar header sejajar dengan body */
 }
 
 .table-absensi tbody td {
@@ -498,21 +478,32 @@ h3.logo-text {
 }
 
 .table-absensi tbody tr:hover {
-    background: rgba(0,171,182,0.06);
+    background: rgba(0, 171, 182, 0.06);
 }
 
-/* Status badge */
-.status-badge {
+/* Status pill */
+.table-absensi .status {
     display: inline-block;
-    padding: 6px 12px;
+    padding: 6px 10px;
     border-radius: 999px;
     font-size: 0.85rem;
-    font-weight: 600;
+    font-weight: 700;
 }
 
-.table-absensi .status.present { background: #e6fffb; color: #007f74; }
-.table-absensi .status.absent  { background: #fff1f2; color: #c53030; }
-.table-absensi .status.late    { background: #fff7ed; color: #b45309; }
+.table-absensi .status.present {
+    background: #e6fffb;
+    color: #007f74;
+}
+
+.table-absensi .status.absent {
+    background: #fff1f2;
+    color: #c53030;
+}
+
+.table-absensi .status.late {
+    background: #fff7ed;
+    color: #b45309;
+}
 
 /* Actions column */
 .table-absensi .actions {
@@ -530,8 +521,9 @@ h3.logo-text {
     color: var(--dark-color);
     border-radius: 6px;
 }
+
 .table-absensi .action-btn:hover {
-    background: rgba(0,0,0,0.04);
+    background: rgba(0, 0, 0, 0.04);
     color: var(--sidebar-active-color);
 }
 
@@ -630,279 +622,3 @@ h3.logo-text {
     color: #888;
     cursor: not-allowed;
 }
-
-/* BUTTONS */
-.buttons {
-    display: flex;
-    justify-content: flex-end;
-    gap: 12px;
-}
-
-.btn {
-    padding: 10px 25px;
-    border-radius: 6px;
-    font-size: 15px;
-    font-weight: 500;
-    cursor: pointer;
-    transition: 0.2s ease;
-    border-radius: 20px;
-}
-
-.btn-save {
-    background-color: #00ABB6;
-    color: #fff;
-    border: 1px solid #00ABB6;
-    border-radius: 20px;
-    font-weight: bold;
-}
-
-.btn-save:hover {
-    background-color: #00ABB6;
-}
-
-.btn-cancel {
-    background-color: #fff;
-    color: red;
-    border: 1px solid red;
-    border-radius: 20px;
-    font-weight: bold;
-}
-
-
-.btn--cancel:hover {
-    background-color: #fff6ed;
-}
-
-@media (max-width: 768px) {
-    .row {
-        flex-direction: column;
-    }
-}
-
-/*PROFILE*/
-
-
-.profile {
-  padding: 30px;
-  background: #fff;
-  min-height: calc(100vh - 60px);
-}
-
-.container {
-  max-width: 800px;
-  margin: 0 auto;
-  background-color: #fff;
-}
-
-.header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 25px;
-}
-
-.title {
-  font-size: 24px;
-  font-weight: 600;
-  color: #222;
-}
-
-.photo {
-  width: 150px;
-  height: 150px;
-  border-radius: 50%;
-  object-fit: cover;
-  border: 2px solid #eee;
-}
-
-.form {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-}
-
-.row {
-  display: flex;
-  gap: 15px;
-}
-
-.group {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-}
-
-.label {
-  font-size: 14px;
-  font-weight: 500;
-  margin-bottom: 6px;
-  color: #333;
-}
-
-.group input {
-  padding: 10px;
-  font-size: 15px;
-  border: 1px solid #ccc;
-  border-radius: 6px;
-  outline: none;
-  transition: border-color 0.2s ease;
-}
-
-.group input:focus {
-  border-color: #f97316;
-}
-
-.group input[disabled] {
-  background-color: #f6f6f6;
-  color: #888;
-  cursor: not-allowed;
-}
-
-/* BUTTONS */
-.buttons {
-  display: flex;
-  justify-content: flex-end;
-  gap: 12px;
-}
-
-.btn {
-  padding: 10px 25px;
-  border-radius: 6px;
-  font-size: 15px;
-  font-weight: 500;
-  cursor: pointer;
-  transition: 0.2s ease;
-  border-radius: 20px;
-}
-
-.btn-save {
-  background-color: #00ABB6;
-  color: #fff;
-  border: 1px solid #00ABB6;
-  border-radius: 20px;
-  font-weight: bold;
-}
-
-.btn-save:hover {
-  background-color: #00ABB6;
-}
-
-.btn-cancel {
-  background-color: #fff;
-  color: red;
-  border: 1px solid red;
-  border-radius: 20px;
-  font-weight: bold;
-}
-
-
-.btn--cancel:hover {
-  background-color: #fff6ed;
-}
-
-@media (max-width: 768px) {
-  .row {
-    flex-direction: column;
-  }
-}
-
-/* EDIT FOTO PROFILE */
-/* === Modal Upload Foto === */
-.modal {
-  display: none;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0,0,0,0.5);
-  justify-content: center;
-  align-items: center;
-  z-index: 999;
-}
-
-.modal-content {
-  background: #fff;
-  padding: 25px;
-  border-radius: 18px;
-  text-align: center;
-  width: 340px;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-  animation: fadeIn 0.3s ease;
-}
-
-.modal-content h3 {
-  margin-bottom: 18px;
-  font-size: 18px;
-  color: #333;
-}
-
-.modal-content img {
-  width: 180px;
-  height: 180px;
-  border-radius: 50%;
-  object-fit: cover;
-  margin-bottom: 20px;
-  border: 3px solid #00ABB6;
-}
-
-/* Tombol Upload di bawah foto */
-.btn-upload {
-  background-color: #00ABB6;
-  color: #fff;
-  border: none;
-  border-radius: 20px;
-  padding: 10px 24px;
-  font-weight: bold;
-  cursor: pointer;
-  transition: background-color 0.2s ease;
-  width: 100%;
-  margin-bottom: 12px;
-}
-
-.btn-upload:hover {
-  background-color: #00919c;
-}
-
-/* Tombol Cancel dan Save di bawah Upload */
-.modal-buttons {
-  display: flex;
-  justify-content: center;
-  gap: 10px;
-}
-
-.btn-cancel {
-  background-color: #fff;
-  color: red;
-  border: 1.5px solid red;
-  border-radius: 20px;
-  padding: 8px 22px;
-  font-weight: bold;
-  cursor: pointer;
-  transition: 0.2s ease;
-}
-
-.btn-cancel:hover {
-  background-color: rgba(255, 0, 0, 0.08);
-}
-
-.btn-save {
-  background-color: #00B67A;
-  color: #fff;
-  border: none;
-  border-radius: 20px;
-  padding: 8px 22px;
-  font-weight: bold;
-  cursor: pointer;
-  transition: background-color 0.2s ease;
-}
-
-.btn-save:hover {
-  background-color: #00a06b;
-}
-
-@keyframes fadeIn {
-  from { opacity: 0; transform: scale(0.95); }
-  to { opacity: 1; transform: scale(1); }
-}
-

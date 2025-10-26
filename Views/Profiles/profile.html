@@ -11,9 +11,8 @@
 
 <body>
 
-  <!-- Load navbar include first so scripts that depend on navbar elements can find them -->
   <div id="navbar-placeholder" data-src="../Navbar/navbar.html"></div>
-
+  
   <div id="main-wrapper" class="main-wrapper">
 
     <main class="profile">
@@ -63,15 +62,32 @@
           </div>
 
           <div>
-            <button type="button" class="btn btn-cancel">Cancel</button>
-            <button type="submit" class="btn btn-save">Save</button>
+            <button type="button" class="btn-danger">Cancel</button>
+            <button type="submit" class="btn-jobdesk">Save</button>
           </div>
         </form>
       </section>
     </main>
   </div>
+
+  <div id="photoModal" class="modal">
+  <div class="modal-content">
+    <h3>Ganti Foto Profil</h3>
+    <img id="previewImage" src="../../asset/img/akbar.png" alt="Preview Foto" class="preview-large">
+
+    <form id="uploadForm" enctype="multipart/form-data">
+      <input type="file" id="fileInput" name="foto" accept="image/*" hidden onchange="previewImageFile(event)">
+      <button type="button" class="btn-upload" onclick="document.getElementById('fileInput').click()">Upload</button>
+
+      <div class="modal-buttons">
+        <button type="button" class="btn-cancel" onclick="closeModal()">Cancel</button>
+        <button type="submit" class="btn-save">Save</button>
+      </div>
+    </form>
+  </div>
+</div>
   <script src="../../asset/js/load_navbar.js"></script>
-  <script src="../../asset/js/absensi.js"></script>
+  <script src="../../asset/js/profile.js"></script>
 </body>
 
 </html>
