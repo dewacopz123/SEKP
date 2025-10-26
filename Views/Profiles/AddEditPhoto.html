@@ -1,0 +1,25 @@
+<div class="modal-form-overlay">
+  <div class="modal-form">
+    <div class="card-content">
+      <h3 style="margin-bottom:12px;">Ganti Foto Profil</h3>
+      <form id="formEditPhoto" class="form-jobdesk" enctype="multipart/form-data">
+        <div class="form-group">
+          <label for="previewImage">Preview Foto</label>
+          <div style="text-align:center;">
+            <img id="previewImage" src="../../asset/img/akbar.png" alt="Preview Foto" class="preview-large">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="fileInput">Pilih Foto</label>
+          <input type="file" id="fileInput" name="foto" accept="image/*" class="form-control" onchange="previewImageFile(event)">
+        </div>
+
+        <div class="button-group">
+          <button type="submit" class="btn-jobdesk">Simpan</button>
+          <button type="button" class="btn-danger" data-close>Batal</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
