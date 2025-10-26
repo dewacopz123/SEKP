@@ -312,6 +312,8 @@ body {
     margin-top: 20px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
     margin-bottom: 10px;
+    width: 100%;
+    max-width: 100%;
 }
 
 .btn-primary {
@@ -429,23 +431,24 @@ h3.logo-text {
     font-weight: 700;
 }
 
-/* Table Absensi */
+/* ---------TABEL----------- */
 .table-absensi {
     margin: 20px 0;
     background: #ffffff;
     border-radius: 10px;
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
-    overflow: auto;
-    /* memberi scroll horizontal pada layar kecil */
+    overflow-x: auto;
+    width: 100%;
 }
 
-/* Struktur tabel */
 .table-absensi table {
-    width: 100%;
+    width: 100%; 
     border-collapse: collapse;
     min-width: 720px;
     font-size: 0.95rem;
 }
+
+
 
 .table-absensi thead {
     color: #BDBDBD;
