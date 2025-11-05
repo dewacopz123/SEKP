@@ -23,7 +23,6 @@ document.addEventListener("DOMContentLoaded", function () {
         return modal;
     }
 
-    // --- Tombol Tambah Penggajian ---
     if (btnAdd) {
         btnAdd.addEventListener("click", async () => {
             try {
@@ -41,7 +40,6 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
 
-    // --- Tombol Edit Penggajian ---
     if (btnEdit) {
         btnEdit.addEventListener("click", async () => {
             try {
@@ -62,7 +60,6 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
 
-    // --- Tombol Hapus Penggajian ---
     if (btnDelete) {
         btnDelete.addEventListener("click", () => {
             if (confirm("Yakin ingin menghapus data penggajian?")) {
